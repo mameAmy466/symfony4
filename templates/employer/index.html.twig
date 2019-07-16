@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter Employer!{% endblock %}
+
+
+{% block body %}
+<h1 class="text-center w-50">Formulair d'incertion</h1>
+<div class="container bg-light">
+    <section class="col-8">
+        {{ form_start(form) }}
+        {{ form_row(form.mat) }}
+        {{ form_row(form.nom) }}
+        {{ form_row(form.dateneS) }}
+        {{ form_row(form.salair) }}
+        {{ form_row(form.Service) }}
+        <div class="col-6 text-center">
+        <button type="submit"  class="btn btn-success">Ajouter</button>
+         </div>
+        {{ form_end(form) }}
+    </section>
+</div>
+{% endblock %}

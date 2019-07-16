@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Employers!{% endblock %}
+{% block body %}
+<h1 class="text-center w-50">Listes des Employers</h1>
+<div class="container">
+    <section class="col-12">
+    <table  id="example" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Matircul</th>
+                <th>Name</th>
+                <th>Date de naissance</th>
+                <th>Salair</th>
+                <th>Service</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for employer in employers %}
+    <tr>
+            <td>{{employer.mat}}</td>
+            <td>{{employer.nom}}</td>
+            <td>{{employer.datenes |date('d/m/Y') }}</td>
+            <td>{{employer.salair}}</td>
+            <td>{{employer.Service.lib}}</td>
+           <td><a href="/employer/{{ employer.id }}" class="btn btn-info">Modifier</a></td> 
+        <td><a href="#" class="btn btn-danger delete-emp" data-id ="{{employer.id}}">Supprimer</a></td> 
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    </section>
+</div>
+{% endblock %}
+{% block javascript %}
+<script src="/js/delet.js"></script>
+{% endblock %}
